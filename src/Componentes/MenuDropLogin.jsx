@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export const MenuDrop = ({position, setPosition}) => {
+export const MenuDropLogin = ({position, setPosition}) => {
 
 
     const handleOption = (e) => {

@@ -1,11 +1,12 @@
 
 import './App.css'
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Login } from './Pages/Login.jsx';
 import { AuthProvider } from './Contexts/AuthContext.jsx';
 import { Home } from './Pages/Home.jsx';
 import { PrivateRoute } from './Componentes/PrivateRoute.jsx';
 import { Prefeitura } from './Pages/Prefeitura.jsx';
+import { Cadastro } from './Pages/Cadastro.jsx';
 
 
 function App() {
@@ -15,7 +16,8 @@ function App() {
       <AuthProvider>
         <Router>
           <Routes>
-            <Route path='/' element={<Login/>}/>
+            <Route path='/' element={<Cadastro/>}/>
+            <Route path='/login' element={<Login/>}/>
             <Route path='/home' element={
               <PrivateRoute>
 

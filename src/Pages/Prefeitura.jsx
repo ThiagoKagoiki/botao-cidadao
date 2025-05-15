@@ -15,7 +15,7 @@ export const Prefeitura = () => {
 
 
     const handleBack = () => {
-        navigate('/')
+        navigate('/login')
     }
 
 

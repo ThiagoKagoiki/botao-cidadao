@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { useAuth } from "../Hooks/useAuth"
-import { MenuDrop } from "../Componentes/MenuDrop"
+import { MenuDropLogin } from "../Componentes/MenuDropLogin"
 
 export const Login = () => {
 
@@ -34,7 +34,7 @@ export const Login = () => {
             <h2>Login</h2>
             <input type="text" placeholder="Usuário" value={username} onChange={(e) => setUsername(e.target.value)}/>
             <input type="password" placeholder="Senha" value={password} onChange={(e) => setPassword(e.target.value)}/>
-            <MenuDrop position={position} setPosition={setPosition}/>
+            <MenuDropLogin position={position} setPosition={setPosition}/>
             <button type="submit">Entrar</button>
         </form>
     )

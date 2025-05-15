@@ -15,7 +15,7 @@ export const Home = () => {
 
 
     const handleBack = () => {
-        navigate('/')
+        navigate('/login')
     }
 
 
