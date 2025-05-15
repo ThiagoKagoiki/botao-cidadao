@@ -5,6 +5,8 @@ export const Prefeitura = () => {
 
     const [results, setFeedbacks] = useState([])
     const [error, setError] = useState(null);
+    const [msg, setMsg] = useState('')
+    const [id, setId] = useState('')
 
 
     // useEffect(() => {
@@ -50,6 +52,33 @@ export const Prefeitura = () => {
                 setError(error.message)
             })
     }, [])
+
+    const handleDelete = async(e) => {
+        e.preventDefault()
+
+        fetch(`https://681b999317018fe5057c26f6.mockapi.io/api/v1/feedbacks/${id}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-type': 'application/json'
+            },
+        })
+            .then((response) => {
+                if(!response.ok){
+                    throw new Error('Erro ao deletar feedback')
+                }
+                
+                return response.json()
+            })
+            .then((data) => {
+                setMsg('Feedback excluído com sucesso!')
+                setFeedbacks((prevFeedbacks) => prevFeedbacks.filter(feedback=> feedback.id.toString() !== id))
+                setId('')
+            })
+            .catch((error) => {
+                console.error('Erro ao excluir feedback: ', error)
+                setMsg('Erro ao enviar feedback.')
+            })
+    }
     return(
         <div>
             <h1>Feedback/Denúncia</h1>
@@ -73,10 +102,11 @@ export const Prefeitura = () => {
                 )}
             </ul>
 
-            <form action="">
-                <label htmlFor="">Id do feedback/denúncia</label>
-                <input type="text" placeholder="Ex: 3"/>
-                <button className="btn-excluir">Excluir</button>
+            <form onSubmit={handleDelete}>
+                <label htmlFor="id">Id do feedback/denúncia</label>
+                <input type="text" placeholder="Ex: 3" value={id} onChange={(e) => setId(e.target.value)} id="id-delete"/>
+                <button className="btn-excluir" type="submit">Excluir</button>
+                <p>{msg}</p>
             </form>
         </div>
     )

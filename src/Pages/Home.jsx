@@ -31,8 +31,8 @@ export const Home = () => {
             .then((response) => {
                 if (!response.ok) {
                     throw new Error('Erro ao enviar feedback');
-                  }
-                  return response.json();
+                }
+                return response.json();
             })
             .then((data) => {
                 setMsg('Feedback enviado com sucesso!');
