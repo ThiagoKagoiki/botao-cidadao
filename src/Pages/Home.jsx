@@ -7,10 +7,11 @@ export const Home = () => {
 
     const navigate = useNavigate()
     const {user, logout} = useAuth()
-
-    const [feedback, setDesc] = useState('')
-    const [local, setLoc] = useState('')
+    const [userFeed, setUserFeed] = useState('')
+    const [feedback, setFeedback] = useState('')
+    const [local, setLocal] = useState('')
     const [msg, setMsg] = useState('')
+    const username = user?.username
 
 
     const handleBack = () => {
@@ -26,7 +27,7 @@ export const Home = () => {
             headers: {
                 'Content-type': 'application/json'
             },
-            body: JSON.stringify({feedback, local}),
+            body: JSON.stringify({feedback, local, username}),
         })
             .then((response) => {
                 if (!response.ok) {
@@ -36,9 +37,9 @@ export const Home = () => {
             })
             .then((data) => {
                 setMsg('Feedback enviado com sucesso!');
-                setDesc('');
-                setLoc('');
-                console.log(feedback, local)
+                setFeedback('');
+                setLocal('');
+                console.log(feedback, local, username)
             })
             .catch((error) => {
                 console.error('Erro ao enviar feedback:', error);
@@ -51,15 +52,15 @@ export const Home = () => {
 
     return(
         <div>
-            <h1 className="title-home-cid">Bem vindo, {user?.username}</h1> {/* '?' pode ter ou nao ter user */}
+            <h1 className="title-home-cid">Bem vindo, {username}</h1> {/* '?' pode ter ou nao ter user */}
             <h3 className="subtitle-home-cid">Comece a sua denuncia ou feedback</h3>
             
             <form onSubmit={handleSubmit}>
                 <label htmlFor="descricao">Feedback/Denúncia</label>
-                <textarea name="" id="" placeholder="Ex: Rua fulano da silva precisa de asfalto" onChange={(e) => setDesc(e.target.value)} value={feedback}/>
+                <textarea name="" id="" placeholder="Ex: Rua fulano da silva precisa de asfalto" onChange={(e) => setFeedback(e.target.value)} value={feedback}/>
                 
                 <label htmlFor="local">Local</label>
-                <input type="text" placeholder="Ex: Kobrasol" onChange={(e) => setLoc(e.target.value)} value={local}/>
+                <input type="text" placeholder="Ex: Kobrasol" onChange={(e) => setLocal(e.target.value)} value={local}/>
 
                 <button className="btn-feedback">Enviar comentário</button>
             </form>
