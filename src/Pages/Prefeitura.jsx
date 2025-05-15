@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { data } from "react-router-dom";
+import { data, useNavigate } from "react-router-dom";
+import { useAuth } from "../Hooks/useAuth";
 
 export const Prefeitura = () => {
 
@@ -7,6 +8,15 @@ export const Prefeitura = () => {
     const [error, setError] = useState(null);
     const [msg, setMsg] = useState('')
     const [id, setId] = useState('')
+    const {user, logout} = useAuth()
+
+
+    const navigate = useNavigate()
+
+
+    const handleBack = () => {
+        navigate('/')
+    }
 
 
     // useEffect(() => {
@@ -81,7 +91,7 @@ export const Prefeitura = () => {
     }
     return(
         <div>
-            <h1>Feedback/Denúncia</h1>
+            <h1>Welcome</h1>
 
             {/* lista API */}
 
@@ -108,6 +118,9 @@ export const Prefeitura = () => {
                 <button className="btn-excluir" type="submit">Excluir</button>
                 <p>{msg}</p>
             </form>
+
+
+            <button onClick={handleBack}>Logout</button>
         </div>
     )
 }
