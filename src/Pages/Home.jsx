@@ -8,8 +8,8 @@ export const Home = () => {
     const navigate = useNavigate()
     const {user, logout} = useAuth()
 
-    const [desc, setDesc] = useState('')
-    const [loc, setLoc] = useState('')
+    const [feedback, setDesc] = useState('')
+    const [local, setLoc] = useState('')
     const [msg, setMsg] = useState('')
 
 
@@ -24,9 +24,9 @@ export const Home = () => {
         fetch('https://681b999317018fe5057c26f6.mockapi.io/api/v1/feedbacks', {
             method: 'POST',
             headers: {
-                'Conten-type': 'application/json'
+                'Content-type': 'application/json'
             },
-            body: JSON.stringify({desc, loc}),
+            body: JSON.stringify({feedback, local}),
         })
             .then((response) => {
                 if (!response.ok) {
@@ -38,6 +38,7 @@ export const Home = () => {
                 setMsg('Feedback enviado com sucesso!');
                 setDesc('');
                 setLoc('');
+                console.log(feedback, local)
             })
             .catch((error) => {
                 console.error('Erro ao enviar feedback:', error);
@@ -55,10 +56,10 @@ export const Home = () => {
             
             <form onSubmit={handleSubmit}>
                 <label htmlFor="descricao">Feedback/Denúncia</label>
-                <textarea name="" id="" placeholder="Ex: Rua fulano da silva precisa de asfalto" onChange={(e) => setDesc(e.target.value)} value={desc}/>
+                <textarea name="" id="" placeholder="Ex: Rua fulano da silva precisa de asfalto" onChange={(e) => setDesc(e.target.value)} value={feedback}/>
                 
                 <label htmlFor="local">Local</label>
-                <input type="text" placeholder="Ex: Kobrasol" onChange={(e) => setLoc(e.target.value)} value={loc}/>
+                <input type="text" placeholder="Ex: Kobrasol" onChange={(e) => setLoc(e.target.value)} value={local}/>
 
                 <button className="btn-feedback">Enviar comentário</button>
             </form>

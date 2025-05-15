@@ -30,8 +30,6 @@ export const Login = () => {
             <input type="text" placeholder="Usuário" value={username} onChange={(e) => setUsername(e.target.value)}/>
             <input type="password" placeholder="Senha" value={password} onChange={(e) => setPassword(e.target.value)}/>
             <button type="submit">Entrar</button>
-
-            
         </form>
     )
 }
