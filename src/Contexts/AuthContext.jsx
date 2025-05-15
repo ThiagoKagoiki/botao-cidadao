@@ -7,8 +7,8 @@ export const AuthProvider = ({children}) => {
 
     const [user, setUser] = useState(null);
 
-    const loginfunc = async(username, password) => {
-        const {success, user} = await loginRequest(username, password);
+    const loginfunc = async(username, password, position) => {
+        const {success, user} = await loginRequest(username, password, position);
         setUser(success ? user : null)
         return success
     }
