@@ -54,7 +54,7 @@ export const Prefeitura = () => {
                 return response.json()
             })
             .then((data) => {
-                console.log(data); // Verifique a estrutura dos dados
+                // console.log(data); // Verifique a estrutura dos dados
                 setFeedbacks(data);
             })
             .catch((error) => {
