@@ -16,8 +16,10 @@ export const Login = () => {
         
         const success = await login(username, password, position);
         
-        if(success){
+        if(success && position === 'prefeitura'){
             navigate('/prefeitura')
+        }else if(success && position === 'cidadao'){
+            navigate('/home')
         }else{
             alert("Usuário ou senha inválidos")
         }
