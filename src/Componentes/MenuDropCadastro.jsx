@@ -1,11 +1,12 @@
-import React, { useState } from "react";
+    import React, { useState } from "react";
 
 export const MenuDropCadastro = ({position, setPosition}) => {
 
 
     const handleOption = (e) => {
-        setPosition(e.target.value)
-        console.log('Valor selecionado:', e.target.value);
+        const value = e.target.value
+        setPosition(value)
+        console.log('Valor selecionado:', value);
     }
 
     return(

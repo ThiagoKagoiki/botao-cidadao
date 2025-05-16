@@ -29,13 +29,21 @@ export const Login = () => {
         console.log('position: ', position)
     }
 
+    const handleBack = () => {
+        navigate('/')
+    }
+
     return(
-        <form onSubmit={handleSubmit}>
-            <h2>Login</h2>
-            <input type="text" placeholder="Usuário" value={username} onChange={(e) => setUsername(e.target.value)}/>
-            <input type="password" placeholder="Senha" value={password} onChange={(e) => setPassword(e.target.value)}/>
-            <MenuDropLogin position={position} setPosition={setPosition}/>
-            <button type="submit">Entrar</button>
-        </form>
+        <div>
+            <form onSubmit={handleSubmit}>
+                <h2>Login</h2>
+                <input type="text" placeholder="Usuário" value={username} onChange={(e) => setUsername(e.target.value)}/>
+                <input type="password" placeholder="Senha" value={password} onChange={(e) => setPassword(e.target.value)}/>
+                <MenuDropLogin position={position} setPosition={setPosition}/>
+                <button type="submit">Entrar</button>
+            </form>
+            <button onClick={handleBack}>Fazer novo Cadastro</button>
+        </div>
+        
     )
 }
