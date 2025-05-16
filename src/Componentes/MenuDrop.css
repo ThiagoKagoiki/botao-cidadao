@@ -1,0 +1,16 @@
+#select-position {
+  padding: 10px;
+  border: 2px solid #000;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  outline: none;
+  background-color: rgb(53, 53, 53);
+}
+
+.title-option {
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #000;
+  margin-right: 50px;
+}

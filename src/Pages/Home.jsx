@@ -2,12 +2,13 @@ import { useNavigate } from "react-router-dom"
 import { useAuth } from "../Hooks/useAuth"
 import axios from 'axios';
 import { useState } from "react";
+import './Home.css'
 
 export const Home = () => {
 
     const navigate = useNavigate()
     const {user, logout} = useAuth()
-    const [userFeed, setUserFeed] = useState('')
+    // const [userFeed, setUserFeed] = useState('')
     const [feedback, setFeedback] = useState('')
     const [local, setLocal] = useState('')
     const [msg, setMsg] = useState('')
@@ -55,12 +56,12 @@ export const Home = () => {
             <h1 className="title-home-cid">Bem vindo, {username}</h1> {/* '?' pode ter ou nao ter user */}
             <h3 className="subtitle-home-cid">Comece a sua denuncia ou feedback</h3>
             
-            <form onSubmit={handleSubmit}>
-                <label htmlFor="descricao">Feedback/Denúncia</label>
-                <textarea name="" id="" placeholder="Ex: Rua fulano da silva precisa de asfalto" onChange={(e) => setFeedback(e.target.value)} value={feedback}/>
+            <form onSubmit={handleSubmit} className="forms-home">
+                <label htmlFor="descricao" className="descricao">Feedback/Denúncia</label>
+                <textarea name="" id="" placeholder="Ex: Precisa de asfalto" onChange={(e) => setFeedback(e.target.value)} value={feedback} className="input-feed"/>
                 
-                <label htmlFor="local">Local</label>
-                <input type="text" placeholder="Ex: Kobrasol" onChange={(e) => setLocal(e.target.value)} value={local}/>
+                <label htmlFor="local" className="descricao">Local</label>
+                <input type="text" placeholder="Ex: Kobrasol" onChange={(e) => setLocal(e.target.value)} value={local} className="input-local"/>
 
                 <button className="btn-feedback">Enviar comentário</button>
             </form>

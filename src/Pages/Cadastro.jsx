@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { MenuDropCadastro } from "../Componentes/MenuDropCadastro";
 import { useNavigate } from "react-router-dom";
+import './Cadastro.css'
 
 export const Cadastro = () => {
 
@@ -45,10 +46,10 @@ export const Cadastro = () => {
     }
 
     return(
-        <form onSubmit={handleSubmit}>
-            <h2>Cadastro</h2>
-            <input type="text" placeholder="Usuário" value={username} onChange={(e) => setUsername(e.target.value)}/>
-            <input type="text" placeholder="Senha" value={password} onChange={(e) => setPassword(e.target.value)}/>
+        <form onSubmit={handleSubmit} className="form-cadastro">
+            <h2 className="cadastro">Cadastro</h2>
+            <input type="text" placeholder="Usuário" value={username} onChange={(e) => setUsername(e.target.value)} className="input"/>
+            <input type="password" placeholder="Senha" value={password} onChange={(e) => setPassword(e.target.value)} className="input"/>
             <MenuDropCadastro position={position} setPosition={setPosition}/>
             <button className="btn-cadastro">Enviar</button>
         </form>

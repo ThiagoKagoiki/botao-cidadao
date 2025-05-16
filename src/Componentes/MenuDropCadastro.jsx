@@ -1,4 +1,5 @@
-    import React, { useState } from "react";
+import React, { useState } from "react";
+import './MenuDrop.css'
 
 export const MenuDropCadastro = ({position, setPosition}) => {
 
@@ -11,7 +12,7 @@ export const MenuDropCadastro = ({position, setPosition}) => {
 
     return(
         <div>
-            <label htmlFor="">Escolha uma opção</label>
+            <label htmlFor="" className="title-option">Escolha uma opção</label>
             <select name="" id="select-position" value={position} onChange={handleOption}>
                 <option value="">Selecione</option>
                 <option value="cidadao">Cidadão</option>

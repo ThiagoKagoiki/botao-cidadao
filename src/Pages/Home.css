@@ -1,0 +1,95 @@
+.title-home-cid{
+  text-align: center;
+  color: #333;
+}
+
+.subtitle-home-cid{
+    text-align: center;
+    color: #333;
+}
+
+.forms-home {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 50px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    font-family: Arial, sans-serif;
+    align-items: center;
+}
+
+.descricao{
+    text-align: left;
+    font-size: 15px;
+    text-decoration: underline;
+    text-decoration-style: dashed;
+    padding: 4px;
+}
+
+/* .input-feed{
+    padding: 10px;
+    padding-bottom: 100px;
+    border: 2px solid #000;
+    border-radius: 5px;
+    font-size: 14px;
+    background-color: #8d8d8d;
+    color: white;
+    outline: none;
+} */
+
+.input-feed {
+    width: 100%;
+    min-height: 80px;
+    width: 400px;
+    padding: 10px;
+    font-size: 14px;
+    border: 2px solid #000;
+    border-radius: 5px;
+    resize: none; /* permite redimensionar apenas na vertical */
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    outline: none;
+    background-color: #808080;
+    cursor: pointer;
+}
+
+
+.input-feed::placeholder{
+    color: rgb(204, 204, 204);
+}
+
+.input-local{
+    padding: 10px;
+    font-size: 14px;
+    border: 2px solid #000;
+    border-radius: 5px;
+    outline: none;
+    background-color: #808080;
+    cursor: pointer;
+    width: 400px;
+}
+
+.input-local::placeholder{
+    color: rgb(204, 204, 204);
+}
+
+.btn-feedback{
+    width: 200px;
+    padding: 10px;
+    border-radius: 10px;
+    border: 2px solid black;
+    outline: none;
+    cursor: pointer;
+    background-color: rgb(59, 59, 134);
+    color: white;
+    font-size: 15px
+}
+
+.btn-feedback:hover{
+    transition: 0.5s;
+    background-color: rgb(71, 71, 156);
+}
